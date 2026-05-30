@@ -5,17 +5,47 @@ import useAuth from "../../../hooks/useAuth";
 
 import "./Chatbot.css";
 
-const QUICK_PROMPTS = [
-  "Show me black phones",
-  "Compare iPhone 16 price online",
-  "What is my order status?",
-  "What is the refund policy?",
+const QUICK_PROMPT_GROUPS = [
+  {
+    title: "Products",
+    prompts: [
+      "Show all iPhones",
+      "Show phones under 50000",
+      "I need gaming laptop",
+      "Suggest Nothing phones",
+      "Show similar products for iPhone 17",
+      "Which one is cheapest?",
+    ],
+  },
+  {
+    title: "Orders",
+    prompts: [
+      "What is my order status?",
+      "What was my last order?",
+      "What was my last order product?",
+      "Show my recent orders",
+      "Is my order delivered?",
+    ],
+  },
+  {
+    title: "Payments & Policy",
+    prompts: [
+      "Is my payment paid?",
+      "Show my payment status",
+      "Can I return my last order?",
+      "Can I cancel my order?",
+      "What is refund policy?",
+      "What is warranty policy?",
+    ],
+  },
 ];
 
 const PRIVATE_QUERY_WORDS = [
   "my order",
   "order status",
   "latest order",
+  "last order",
+  "recent orders",
   "order history",
   "my payment",
   "payment status",
@@ -23,6 +53,9 @@ const PRIVATE_QUERY_WORDS = [
   "refund status",
   "my cart",
   "my wishlist",
+  "return my last order",
+  "cancel my order",
+  "order delivered",
 ];
 
 const createMessage = ({ role, content, meta = null }) => {
@@ -387,15 +420,23 @@ const Chatbot = () => {
         </div>
 
         <div className="chatbot-quick-prompts">
-          {QUICK_PROMPTS.map((prompt) => (
-            <button
-              key={prompt}
-              type="button"
-              onClick={() => sendMessage(prompt)}
-              disabled={sending}
-            >
-              {prompt}
-            </button>
+          {QUICK_PROMPT_GROUPS.map((group) => (
+            <div key={group.title} className="chatbot-prompt-group">
+              <p className="chatbot-prompt-title">{group.title}</p>
+
+              <div className="chatbot-prompt-list">
+                {group.prompts.map((prompt) => (
+                  <button
+                    key={prompt}
+                    type="button"
+                    onClick={() => sendMessage(prompt)}
+                    disabled={sending}
+                  >
+                    {prompt}
+                  </button>
+                ))}
+              </div>
+            </div>
           ))}
         </div>
 
@@ -431,6 +472,10 @@ const Chatbot = () => {
             placeholder="Ask about products, price comparison, order status, payment status..."
             rows={1}
             disabled={sending}
+            spellCheck="true"
+            autoCorrect="on"
+            autoCapitalize="sentences"
+            autoComplete="on"
           />
 
           <button type="submit" disabled={sending || !input.trim()}>
