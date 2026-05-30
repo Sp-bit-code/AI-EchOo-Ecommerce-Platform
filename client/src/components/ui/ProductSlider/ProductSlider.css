@@ -1,0 +1,33 @@
+.product-slider {
+  width: 100%;
+}
+
+.container-custom {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.aesthetic-card {
+  border-radius: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.text-text-main {
+  color: #111827;
+}
+
+.text-text-secondary {
+  color: #6b7280;
+}
