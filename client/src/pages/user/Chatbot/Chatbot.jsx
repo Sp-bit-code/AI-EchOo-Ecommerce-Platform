@@ -120,11 +120,7 @@ const renderInlineText = (text) => {
       const isBold = boldIndex % 2 === 1;
 
       if (isBold) {
-        return (
-          <strong key={`${part}-${index}-${boldIndex}`}>
-            {boldPart}
-          </strong>
-        );
+        return <strong key={`${part}-${index}-${boldIndex}`}>{boldPart}</strong>;
       }
 
       return (
@@ -419,69 +415,80 @@ const Chatbot = () => {
           </button>
         </div>
 
-        <div className="chatbot-quick-prompts">
-          {QUICK_PROMPT_GROUPS.map((group) => (
-            <div key={group.title} className="chatbot-prompt-group">
-              <p className="chatbot-prompt-title">{group.title}</p>
-
-              <div className="chatbot-prompt-list">
-                {group.prompts.map((prompt) => (
-                  <button
-                    key={prompt}
-                    type="button"
-                    onClick={() => sendMessage(prompt)}
-                    disabled={sending}
-                  >
-                    {prompt}
-                  </button>
-                ))}
-              </div>
+        <div className="chatbot-main-area">
+          <aside className="chatbot-prompt-sidebar">
+            <div className="chatbot-prompt-sidebar-head">
+              <h3>Quick Questions</h3>
+              <p>Tap any question to ask instantly.</p>
             </div>
-          ))}
-        </div>
 
-        <div className="chatbot-window">
-          {messages.map((message) => (
-            <ChatMessage key={message.id} message={message} />
-          ))}
+            <div className="chatbot-quick-prompts">
+              {QUICK_PROMPT_GROUPS.map((group) => (
+                <div key={group.title} className="chatbot-prompt-group">
+                  <p className="chatbot-prompt-title">{group.title}</p>
 
-          {sending && (
-            <div className="chatbot-message-row chatbot-message-row-ai">
-              <div className="chatbot-message-bubble chatbot-message-ai">
-                <div className="chatbot-message-label">Echoo AI</div>
-                <div className="chatbot-typing">
-                  <span></span>
-                  <span></span>
-                  <span></span>
+                  <div className="chatbot-prompt-list">
+                    {group.prompts.map((prompt) => (
+                      <button
+                        key={prompt}
+                        type="button"
+                        onClick={() => sendMessage(prompt)}
+                        disabled={sending}
+                      >
+                        {prompt}
+                      </button>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              ))}
             </div>
-          )}
+          </aside>
 
-          <div ref={scrollRef}></div>
+          <div className="chatbot-chat-area">
+            <div className="chatbot-window">
+              {messages.map((message) => (
+                <ChatMessage key={message.id} message={message} />
+              ))}
+
+              {sending && (
+                <div className="chatbot-message-row chatbot-message-row-ai">
+                  <div className="chatbot-message-bubble chatbot-message-ai">
+                    <div className="chatbot-message-label">Echoo AI</div>
+                    <div className="chatbot-typing">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              <div ref={scrollRef}></div>
+            </div>
+
+            {errorText && <div className="chatbot-error">{errorText}</div>}
+
+            <form className="chatbot-input-area" onSubmit={handleSubmit}>
+              <textarea
+                ref={inputRef}
+                value={input}
+                onChange={(event) => setInput(event.target.value)}
+                onKeyDown={handleKeyDown}
+                placeholder="Ask about products, price comparison, order status, payment status..."
+                rows={1}
+                disabled={sending}
+                spellCheck="true"
+                autoCorrect="on"
+                autoCapitalize="sentences"
+                autoComplete="on"
+              />
+
+              <button type="submit" disabled={sending || !input.trim()}>
+                {sending ? "Sending..." : "Send"}
+              </button>
+            </form>
+          </div>
         </div>
-
-        {errorText && <div className="chatbot-error">{errorText}</div>}
-
-        <form className="chatbot-input-area" onSubmit={handleSubmit}>
-          <textarea
-            ref={inputRef}
-            value={input}
-            onChange={(event) => setInput(event.target.value)}
-            onKeyDown={handleKeyDown}
-            placeholder="Ask about products, price comparison, order status, payment status..."
-            rows={1}
-            disabled={sending}
-            spellCheck="true"
-            autoCorrect="on"
-            autoCapitalize="sentences"
-            autoComplete="on"
-          />
-
-          <button type="submit" disabled={sending || !input.trim()}>
-            {sending ? "Sending..." : "Send"}
-          </button>
-        </form>
       </section>
     </main>
   );
