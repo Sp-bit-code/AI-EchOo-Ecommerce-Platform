@@ -1,0 +1,6 @@
+/* HeroButton styles */
+/* Main design is handled with Tailwind classes inside HeroButton.jsx */
+
+.hero-button {
+  width: 100%;
+}

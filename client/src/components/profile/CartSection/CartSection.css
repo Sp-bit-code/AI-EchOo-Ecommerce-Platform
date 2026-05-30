@@ -1,0 +1,6 @@
+/* CartSection styles */
+/* Main design is handled with Tailwind classes inside CartSection.jsx */
+
+.cart-section {
+  width: 100%;
+}

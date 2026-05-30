@@ -1,0 +1,6 @@
+/* ProductActions styles */
+/* Main design is handled with Tailwind classes inside ProductActions.jsx */
+
+.product-actions {
+  width: 100%;
+}

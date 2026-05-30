@@ -1,0 +1,6 @@
+/* ProductImages styles */
+/* Main design is handled with Tailwind classes inside ProductImages.jsx */
+
+.product-images {
+  width: 100%;
+}

@@ -1,0 +1,6 @@
+/* ProductHeader styles */
+/* Main design is handled with Tailwind classes inside ProductHeader.jsx */
+
+.product-header {
+  width: 100%;
+}

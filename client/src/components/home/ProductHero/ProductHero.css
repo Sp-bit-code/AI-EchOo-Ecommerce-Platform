@@ -1,0 +1,6 @@
+/* ProductHero styles */
+/* Main design is handled with Tailwind classes inside ProductHero.jsx */
+
+.product-hero {
+  width: 100%;
+}

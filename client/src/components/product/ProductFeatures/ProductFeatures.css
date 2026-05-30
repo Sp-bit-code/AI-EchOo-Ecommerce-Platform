@@ -1,0 +1,6 @@
+/* ProductFeatures styles */
+/* Main design is handled with Tailwind classes inside ProductFeatures.jsx */
+
+.product-features {
+  width: 100%;
+}

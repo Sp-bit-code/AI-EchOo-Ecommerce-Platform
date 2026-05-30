@@ -1,0 +1,6 @@
+/* ProfileSidebar styles */
+/* Main design is handled with Tailwind classes inside ProfileSidebar.jsx */
+
+.profile-sidebar {
+  width: 100%;
+}

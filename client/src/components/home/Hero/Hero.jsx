@@ -1,0 +1,434 @@
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { Github, Instagram, Linkedin, Quote } from "lucide-react";
+
+import { getProducts } from "../../../api/productApi";
+import Overlay from "../../ui/Overlay/Overlay";
+import "./Hero.css";
+
+const INSTAGRAM_URL = "https://www.instagram.com/sp_02arsh_/";
+const LINKEDIN_URL = "https://www.linkedin.com/in/sparsh-srivastava-621882289/";
+const GITHUB_URL = "https://github.com/Sp-bit-code";
+
+const Hero = () => {
+  const navigate = useNavigate();
+  const [featuredProducts, setFeaturedProducts] = useState([]);
+
+  const fallbackProductImage =
+    "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' fill='%23e5e7eb'%3E%3Crect width='200' height='200' rx='8'/%3E%3Ctext x='50%25' y='50%25' fill='%239ca3af' text-anchor='middle' dy='.3em' font-size='14' font-family='sans-serif'%3ENo Image%3C/text%3E%3C/svg%3E";
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const products = await getProducts({ featured: true, limit: 4 });
+
+        if (products.length > 0) {
+          setFeaturedProducts(products.slice(0, 4));
+          return;
+        }
+
+        const allProducts = await getProducts({ limit: 4 });
+        setFeaturedProducts(allProducts.slice(0, 4));
+      } catch (error) {
+        console.error("Error fetching featured products:", error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
+
+  const getProductImage = (product) => {
+    return (
+      product.product_images?.find((image) => image.is_primary)?.image_url ||
+      product.product_images?.[0]?.image_url ||
+      product.images?.[0]?.image_url ||
+      fallbackProductImage
+    );
+  };
+
+  const getProductPrice = (product) => {
+    return Number(product.discount_price || product.price || 999);
+  };
+
+  const handleFeaturedClick = (slug) => {
+    navigate(`/product/${slug}`);
+  };
+
+  const handleShopNowClick = () => {
+    navigate("/store");
+  };
+
+  return (
+    <div className="bg-gradient-to-b from-[#d3fcff] via-[#cceaf7] to-[#f0f2f5] min-h-screen text-gray-900 font-sans relative">
+      <Overlay className="z-0 opacity-40 pointer-events-none" />
+
+      <section className="relative pt-32 md:pt-48 pb-16 px-4 max-w-7xl mx-auto flex flex-col items-center justify-center overflow-hidden min-h-[90vh]">
+        <div className="absolute top-12 md:top-36 left-0 right-0 z-0 flex justify-center w-full overflow-hidden pointer-events-none uppercase">
+          <h1
+            className="text-[22vw] md:text-[13vw] font-normal tracking-normal text-[#0f172a] leading-none select-none text-center"
+            style={{
+              fontFamily: '"Anton", sans-serif',
+              transform: "scaleY(1.15)",
+            }}
+          >
+            AESTHETIC
+            <br className="md:hidden" /> UNBOUND
+          </h1>
+        </div>
+
+        <div className="relative z-10 w-full flex flex-col md:flex-row justify-between items-center mt-20 md:mt-24">
+          <div className="hidden md:flex flex-col bg-white/30 backdrop-blur-md p-3 rounded-3xl shadow-lg border border-white/50 relative hover:-translate-y-2 transition-transform duration-300">
+            <div className="w-28 h-28 bg-[#69cfab] rounded-xl flex items-center justify-center overflow-hidden relative">
+              <img
+                src="https://i2-prod.walesonline.co.uk/article30454386.ece/ALTERNATES/s1200f/0_818GlQGp45L_AC_SL1500_.jpg"
+                alt="Earbud"
+                className="w-[85%] h-[85%] object-cover mix-blend-normal rounded-xl"
+              />
+
+              <button
+                type="button"
+                className="absolute inset-0 m-auto w-8 h-8 bg-white rounded-full shadow-md flex items-center justify-center transform transition-transform hover:scale-110"
+                onClick={() => navigate("/product/nothing-ear-2024")}
+                aria-label="Open featured earbud"
+              >
+                <svg
+                  className="w-4 h-4 text-gray-800"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2.5}
+                    d="M5 10l7-7m0 0l7 7m-7-7v18"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div className="relative z-20 flex-1 flex justify-center items-center mt-[-60px] md:mt-[-100px]">
+            <img
+              src="https://cdn.shopify.com/s/files/1/0586/3270/0077/files/0000s_0021_Headphone1-white.png?v=1753757251"
+              alt="Nothing Headphone"
+              className="w-[420px] h-[420px] md:w-[600px] md:h-[600px] object-contain drop-shadow-2xl animate-[float_6s_ease-in-out_infinite]"
+            />
+
+            <div className="absolute top-[45%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-md rounded-[2rem] pr-2 pl-6 py-2 flex items-center gap-4 shadow-xl border border-white/50 whitespace-nowrap z-30">
+              <span className="text-sm font-bold tracking-wide text-gray-800">
+                Shop Now
+              </span>
+
+              <button
+                type="button"
+                onClick={handleShopNowClick}
+                className="w-10 h-10 rounded-full bg-gradient-to-b from-green-200 to-gray-800 shadow-[inset_0px_2px_4px_rgba(255,255,255,0.3),_0px_4px_8px_rgba(0,0,0,0.4)] ring-1 ring-gray-600 flex items-center justify-center text-white hover:from-gray-400 hover:to-gray-700 transition-colors z-10"
+                aria-label="Shop now"
+              >
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2.5}
+                    d="M5 12h14M12 5l7 7-7 7"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div className="hidden md:flex flex-col gap-10 w-64 items-end">
+            <div className="flex gap-3 justify-end">
+              <a
+                href={INSTAGRAM_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="w-10 h-10 rounded-full bg-white shadow-sm flex items-center justify-center text-gray-600 hover:text-black hover:scale-110 transition-all"
+                aria-label="Instagram"
+              >
+                <Instagram size={18} strokeWidth={2} />
+              </a>
+
+              <a
+                href={LINKEDIN_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="w-10 h-10 rounded-full bg-white shadow-sm flex items-center justify-center text-gray-600 hover:text-black hover:scale-110 transition-all"
+                aria-label="LinkedIn"
+              >
+                <Linkedin size={18} strokeWidth={2} />
+              </a>
+
+              <a
+                href={GITHUB_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="w-10 h-10 rounded-full bg-white shadow-sm flex items-center justify-center text-gray-600 hover:text-black hover:scale-110 transition-all"
+                aria-label="GitHub"
+              >
+                <Github size={18} strokeWidth={2} />
+              </a>
+            </div>
+
+            <div className="text-left mt-6 max-w-[180px] flex flex-col items-start mr-4">
+              <Quote
+                size={28}
+                className="text-[#0c9464] mb-3 fill-current opacity-60 transform scale-x-[-1]"
+              />
+
+              <p className="text-[13px] font-medium text-[#1e293b] leading-relaxed">
+                Perfect blend of cutting-edge technology and craftsmanship.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="relative z-10 w-full mt-24 flex flex-col lg:flex-row gap-12 justify-between items-start lg:items-center">
+          <div className="lg:w-1/2">
+            <h2 className="text-3xl md:text-5xl font-medium tracking-tight text-gray-900 leading-tight mb-8">
+              We believe in transforming
+              <br />
+              ideas into digital experiences
+            </h2>
+
+            <h3 className="font-semibold text-gray-900 mb-4 pb-2 border-b border-gray-300 inline-block">
+              Our mission
+            </h3>
+
+            <div className="flex flex-row gap-4 mt-4 overflow-x-auto pb-2 sm:overflow-visible snap-x snap-mandatory">
+              <div className="flex-none w-[75vw] sm:flex-1 snap-start bg-white/50 backdrop-blur-md rounded-2xl p-5 border border-white/60 shadow-sm">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-b from-[#d4df31] to-[#b3be28] shadow-md flex items-center justify-center mb-4">
+                  <svg
+                    className="w-5 h-5 text-gray-900"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                    />
+                  </svg>
+                </div>
+
+                <h4 className="font-semibold text-gray-900 mb-2">
+                  Transforming Of
+                  <br />
+                  Digital Product
+                </h4>
+
+                <p className="text-xs text-gray-500 leading-relaxed">
+                  we aim to enable businesses to thrive online by delivering
+                  tailored web development that lead to measurable results
+                </p>
+              </div>
+
+              <div className="flex-none w-[75vw] sm:flex-1 snap-start bg-white/50 backdrop-blur-md rounded-2xl p-5 border border-white/60 shadow-sm">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-b from-[#8ab4f8] to-[#4285f4] shadow-md flex items-center justify-center mb-4">
+                  <svg
+                    className="w-5 h-5 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M13 10V3L4 14h7v7l9-11h-7z"
+                    />
+                  </svg>
+                </div>
+
+                <h4 className="font-semibold text-gray-900 mb-2">
+                  Empowering
+                  <br />
+                  digital growth
+                </h4>
+
+                <p className="text-xs text-gray-500 leading-relaxed">
+                  we aim to enable businesses to thrive online by delivering
+                  tailored web development that lead to measurable results
+                </p>
+              </div>
+
+              <div className="flex-none w-[75vw] sm:hidden snap-start bg-white/50 backdrop-blur-md rounded-2xl p-5 border border-white/60 shadow-sm">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-b from-[#f8a4b8] to-[#f43f5e] shadow-md flex items-center justify-center mb-4">
+                  <svg
+                    className="w-5 h-5 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
+                    />
+                  </svg>
+                </div>
+
+                <h4 className="font-semibold text-gray-900 mb-2">
+                  Premium
+                  <br />
+                  Quality
+                </h4>
+
+                <p className="text-xs text-gray-500 leading-relaxed">
+                  we deliver only the best products with top quality standards
+                  and customer satisfaction guaranteed
+                </p>
+              </div>
+            </div>
+
+            <p className="text-xs text-gray-400 mt-3 sm:hidden flex items-center gap-1">
+              <svg
+                className="w-3 h-3"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+              Swipe to see more
+            </p>
+          </div>
+
+          <div className="lg:w-1/3 w-full">
+            <div className="grid grid-cols-3 gap-3 mb-6 lg:hidden">
+              <div className="bg-white/50 backdrop-blur-md rounded-2xl p-4 text-center border border-white/60 shadow-sm">
+                <p className="text-2xl font-bold text-gray-900">50+</p>
+                <p className="text-[10px] text-gray-500 mt-1">Products</p>
+              </div>
+
+              <div className="bg-white/50 backdrop-blur-md rounded-2xl p-4 text-center border border-white/60 shadow-sm">
+                <p className="text-2xl font-bold text-gray-900">4.9★</p>
+                <p className="text-[10px] text-gray-500 mt-1">Rating</p>
+              </div>
+
+              <div className="bg-white/50 backdrop-blur-md rounded-2xl p-4 text-center border border-white/60 shadow-sm">
+                <p className="text-2xl font-bold text-gray-900">24/7</p>
+                <p className="text-[10px] text-gray-500 mt-1">Support</p>
+              </div>
+            </div>
+
+            <div className="hidden lg:flex bg-[#f4f4f4] rounded-3xl overflow-hidden p-6 items-center justify-center relative">
+              <img
+                src="https://www.apple.com/v/apple-vision-pro/j/images/overview/hero/hero__cvgr5aj1ttsi_large.jpg"
+                alt="VR Headset user"
+                className="w-full h-auto object-cover rounded-2xl mix-blend-multiply"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {featuredProducts.length > 0 && (
+        <section className="py-16 px-4 max-w-7xl mx-auto border-t border-gray-200">
+          <div className="flex flex-col items-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-2">
+              Our Best Popular
+            </h2>
+
+            <h2 className="text-3xl md:text-4xl font-semibold text-gray-900">
+              Product
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {featuredProducts.map((product) => (
+              <div
+                key={product.id}
+                className="group relative bg-white/40 backdrop-blur-sm border border-gray-200 rounded-[2rem] p-6 hover:shadow-xl transition-all duration-300 flex flex-col"
+              >
+                <div className="w-full h-48 bg-gradient-to-b from-[#e8eaed] to-[#f8f9fa] rounded-[1.5rem] mb-6 flex items-center justify-center p-4 relative overflow-hidden">
+                  <img
+                    src={getProductImage(product)}
+                    alt={product.name}
+                    className="w-full h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500"
+                    onError={(event) => {
+                      event.target.onerror = null;
+                      event.target.src = fallbackProductImage;
+                    }}
+                  />
+                </div>
+
+                <div className="mt-auto">
+                  <h3 className="font-semibold text-gray-900 text-lg leading-tight mb-2 line-clamp-2">
+                    {product.name}
+                  </h3>
+
+                  <div className="flex justify-between items-center mt-4">
+                    <p className="font-bold text-gray-900">
+                      ₹{getProductPrice(product).toLocaleString("en-IN")}
+                    </p>
+
+                    <button
+                      type="button"
+                      onClick={() => handleFeaturedClick(product.slug)}
+                      className="w-10 h-10 rounded-full bg-gradient-to-b from-gray-500 to-gray-800 shadow-[inset_0px_2px_4px_rgba(255,255,255,0.3),_0px_4px_8px_rgba(0,0,0,0.4)] ring-1 ring-gray-600 flex items-center justify-center text-white hover:from-gray-400 hover:to-gray-700 transition-colors z-10"
+                      aria-label={`Open ${product.name}`}
+                    >
+                      <svg
+                        className="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M14 5l7 7m0 0l-7 7m7-7H3"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="flex justify-center mt-12">
+            <button
+              type="button"
+              onClick={handleShopNowClick}
+              className="flex items-center gap-3 px-8 py-4 bg-gradient-to-b from-gray-500 to-gray-800 shadow-[inset_0px_2px_4px_rgba(255,255,255,0.3),_0px_4px_8px_rgba(0,0,0,0.4)] ring-1 ring-gray-600 text-white font-semibold rounded-full hover:from-gray-400 hover:to-gray-700 transition-all hover:scale-105"
+            >
+              View All Products
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
+              </svg>
+            </button>
+          </div>
+        </section>
+      )}
+    </div>
+  );
+};
+
+export default Hero;

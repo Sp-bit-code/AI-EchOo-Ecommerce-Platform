@@ -1,0 +1,6 @@
+/* ProductInfo styles */
+/* Main design is handled with Tailwind classes inside ProductInfo.jsx */
+
+.product-info {
+  width: 100%;
+}

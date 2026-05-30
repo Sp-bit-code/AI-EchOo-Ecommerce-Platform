@@ -1,0 +1,6 @@
+/* ProductSpecs styles */
+/* Main design is handled with Tailwind classes inside ProductSpecs.jsx */
+
+.product-specs {
+  width: 100%;
+}

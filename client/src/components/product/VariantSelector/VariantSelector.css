@@ -1,0 +1,6 @@
+/* VariantSelector styles */
+/* Main design is handled with Tailwind classes inside VariantSelector.jsx */
+
+.variant-selector {
+  width: 100%;
+}

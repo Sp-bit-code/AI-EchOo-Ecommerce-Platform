@@ -1,0 +1,6 @@
+/* OrdersSection styles */
+/* Main design is handled with Tailwind classes inside OrdersSection.jsx */
+
+.orders-section {
+  width: 100%;
+}

@@ -1,0 +1,6 @@
+/* OverviewSection styles */
+/* Main design is handled with Tailwind classes inside OverviewSection.jsx */
+
+.overview-section {
+  width: 100%;
+}
