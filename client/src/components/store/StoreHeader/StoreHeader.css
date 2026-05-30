@@ -1,0 +1,6 @@
+/* StoreHeader styles */
+/* Main design is handled with Tailwind classes inside StoreHeader.jsx */
+
+.store-header {
+  width: 100%;
+}

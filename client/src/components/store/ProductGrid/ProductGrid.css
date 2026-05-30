@@ -1,0 +1,6 @@
+/* ProductGrid styles */
+/* Main design is handled with Tailwind classes inside ProductGrid.jsx */
+
+.product-grid {
+  width: 100%;
+}

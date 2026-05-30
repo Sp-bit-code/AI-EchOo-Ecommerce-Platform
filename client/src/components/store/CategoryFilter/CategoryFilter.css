@@ -1,0 +1,6 @@
+/* CategoryFilter styles */
+/* Main design is handled with Tailwind classes inside CategoryFilter.jsx */
+
+.category-filter {
+  width: 100%;
+}

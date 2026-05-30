@@ -1,0 +1,6 @@
+/* WishlistSection styles */
+/* Main design is handled with Tailwind classes inside WishlistSection.jsx */
+
+.wishlist-section {
+  width: 100%;
+}
