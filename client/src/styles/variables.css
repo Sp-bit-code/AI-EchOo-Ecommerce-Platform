@@ -1,0 +1,13 @@
+/* variables.css */
+
+:root {
+  --echoo-bg-start: #d9e8f5;
+  --echoo-bg-middle: #e2ebf4;
+  --echoo-bg-end: #f4f7fa;
+
+  --echoo-text-dark: #111827;
+  --echoo-text-muted: #6b7280;
+
+  --echoo-card-bg: rgba(255, 255, 255, 0.4);
+  --echoo-card-border: rgba(255, 255, 255, 0.6);
+}
