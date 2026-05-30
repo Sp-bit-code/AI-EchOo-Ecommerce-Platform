@@ -1,12 +1,13 @@
 {
   "name": "echoo-payment-server",
   "version": "1.0.0",
-  "description": "Echoo backend server for Razorpay payments",
+  "description": "Echoo backend server for Razorpay payments and React frontend",
   "main": "src/index.js",
   "type": "module",
   "scripts": {
     "dev": "nodemon src/index.js",
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "render-build": "npm install && cd ../client && npm install && npm run build"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.45.4",
