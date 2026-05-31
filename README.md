@@ -1,89 +1,139 @@
-# AI-EchOo E-commerce Platform
+# 🛒 AI-EchOo E-commerce Platform
 
-AI-EchOo is an AI-enabled e-commerce platform built to provide a smooth shopping experience with product browsing, cart management, wishlist, order handling, payments, admin product control, and chatbot-based assistance.
+<p align="center">
+  <img src="https://img.shields.io/badge/AI--EchOo-E--commerce%20Platform-00C853?style=for-the-badge&logo=shopify&logoColor=white" alt="AI-EchOo Badge" />
+</p>
 
-## Live Demo
+<p align="center">
+  A modern AI-enabled e-commerce platform with product browsing, cart, wishlist, orders, payments, admin dashboard, and chatbot-based user support.
+</p>
 
-**Deployed Link:** https://ai-echoo-ecommerce-platform.onrender.com/
-**GitHub Repository:** https://github.com/Sp-bit-code/AI-EchOo-Ecommerce-Platform
+<p align="center">
+  <a href="https://ai-echoo-ecommerce-platform.onrender.com/" target="_blank">
+    <img src="https://img.shields.io/badge/Live%20Demo-Visit%20Project-00C853?style=for-the-badge&logo=render&logoColor=white" alt="Live Demo" />
+  </a>
+  <a href="https://github.com/Sp-bit-code/AI-EchOo-Ecommerce-Platform" target="_blank">
+    <img src="https://img.shields.io/badge/GitHub-Repository-000000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Repository" />
+  </a>
+  <a href="https://sparsh-portfolio-qokw.onrender.com/" target="_blank">
+    <img src="https://img.shields.io/badge/Portfolio-Visit%20Now-FF6D00?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Portfolio" />
+  </a>
+</p>
 
-## Project Overview
+---
 
-AI-EchOo E-commerce Platform is designed as a modern online shopping system where users can explore products, manage their cart and wishlist, place orders, and interact with an AI-powered chatbot for product-related support.
+## 📌 Project Overview
 
-The platform also includes an admin dashboard for managing products, orders, stock status, and user-related activity. Supabase is used for authentication and database handling, while the interface is built with React for a responsive and user-friendly experience.
+**AI-EchOo E-commerce Platform** is an AI-enabled shopping platform built to provide a smooth and responsive online shopping experience.
 
-## Features
+Users can explore products, manage cart items, save products to wishlist, place orders, complete payments, and interact with an AI chatbot for product-related support.
 
-* User authentication and secure login system
-* Product listing with detailed product information
-* Cart management for adding and removing products
-* Wishlist functionality for saving favorite products
-* Order placement and order history tracking
+The platform also includes an admin dashboard for managing products, stock status, orders, cancelled orders, and product updates.
+
+---
+
+## 🚀 Live Deployments
+
+<p align="left">
+
+  <a href="https://ai-echoo-ecommerce-platform.onrender.com/" target="_blank">
+    <img src="https://img.shields.io/badge/AI--EchOo%20E--commerce-Live%20Demo-00C853?style=for-the-badge&logo=render&logoColor=white" alt="AI-EchOo E-commerce Live Demo" />
+  </a>
+
+  <a href="https://interview-iq-0imv.onrender.com/" target="_blank">
+    <img src="https://img.shields.io/badge/Interview%20IQ-Live%20Demo-2962FF?style=for-the-badge&logo=render&logoColor=white" alt="Interview IQ Live Demo" />
+  </a>
+
+  <a href="https://ai-assistant-version-2-1ww8.onrender.com/" target="_blank">
+    <img src="https://img.shields.io/badge/Desktop%20AI%20Assistant-Live%20Demo-8E24AA?style=for-the-badge&logo=render&logoColor=white" alt="Desktop AI Assistant Live Demo" />
+  </a>
+
+  <a href="https://carbon-credits-predictor-main.onrender.com/" target="_blank">
+    <img src="https://img.shields.io/badge/Carbon%20Credits%20Predictor-Live%20Demo-2E7D32?style=for-the-badge&logo=render&logoColor=white" alt="Carbon Credits Predictor Live Demo" />
+  </a>
+
+  <a href="https://sparsh-portfolio-qokw.onrender.com/" target="_blank">
+    <img src="https://img.shields.io/badge/Portfolio-Visit%20Now-FF6D00?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Portfolio Website" />
+  </a>
+
+</p>
+
+---
+
+## 💻 Tech Stack
+
+<p align="left">
+
+  <img src="https://img.shields.io/badge/React.js-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React.js" />
+  <img src="https://img.shields.io/badge/React%20Router-CA4245?style=for-the-badge&logo=reactrouter&logoColor=white" alt="React Router" />
+  <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite" />
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" />
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5" />
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3" />
+  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js" />
+  <img src="https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white" alt="Supabase" />
+  <img src="https://img.shields.io/badge/SQL-336791?style=for-the-badge&logo=postgresql&logoColor=white" alt="SQL" />
+  <img src="https://img.shields.io/badge/API%20Integration-FF6D00?style=for-the-badge&logo=fastapi&logoColor=white" alt="API Integration" />
+  <img src="https://img.shields.io/badge/RAG%20Chatbot-8E24AA?style=for-the-badge&logo=openai&logoColor=white" alt="RAG Chatbot" />
+  <img src="https://img.shields.io/badge/AI%20Assistant-2962FF?style=for-the-badge&logo=googlegemini&logoColor=white" alt="AI Assistant" />
+  <img src="https://img.shields.io/badge/Render-000000?style=for-the-badge&logo=render&logoColor=white" alt="Render" />
+  <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
+  <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" alt="Git" />
+
+</p>
+
+---
+
+## ✨ Features
+
+* User signup and login system
+* Product listing with product details
+* Add to cart and remove from cart
+* Wishlist management
+* Order placement and order history
 * Payment flow integration
-* Admin dashboard for product and order management
-* Add, update, delete, and manage product stock
-* AI chatbot support for product and shopping-related queries
-* Responsive user interface for desktop and mobile screens
-* Deployed live platform using Render
+* Admin dashboard for product control
+* Add, update, and delete products
+* Manage product stock status
+* View current orders and cancelled orders
+* AI chatbot support for product-related queries
+* Responsive UI for desktop and mobile screens
+* Live deployment using Render
 
-## Tech Stack
+---
 
-### Frontend
+## 🧩 Main Modules
 
-* React.js
-* JavaScript
-* HTML5
-* CSS3
+### 👤 User Module
 
-### Backend and Database
-
-* Supabase
-* SQL Database
-* Authentication
-* API Integration
-
-### AI and Automation
-
-* RAG Chatbot
-* AI Assistant Support
-* N8N Workflows
-
-### Deployment
-
-* Render
-* GitHub
-
-## Main Modules
-
-### User Module
-
-* User signup and login
+* User authentication
 * Product browsing
-* Cart and wishlist management
+* Cart management
+* Wishlist management
 * Order placement
 * Payment handling
-* Order history view
+* Order history tracking
 
-### Admin Module
+### 🛠️ Admin Module
 
 * Admin login
-* Dashboard overview
-* Add new products
-* Update existing products
-* Delete products
-* Manage stock availability
-* View current orders
-* Track order history and cancelled orders
+* Admin dashboard
+* Product add, update, and delete
+* Stock management
+* Current orders view
+* Cancelled orders tracking
+* Product management controls
 
-### AI Chatbot Module
+### 🤖 AI Chatbot Module
 
-* Product-related query handling
+* Product-related query support
 * Shopping assistance
-* Short and relevant responses
-* Support for product search and user guidance
+* Short and helpful responses
+* User guidance for products, cart, wishlist, and orders
 
-## Project Structure
+---
+
+## 📁 Project Structure
 
 ```bash
 AI-EchOo-Ecommerce-Platform/
@@ -113,7 +163,9 @@ AI-EchOo-Ecommerce-Platform/
 └── package.json
 ```
 
-## Installation and Setup
+---
+
+## ⚙️ Installation and Setup
 
 ### 1. Clone the repository
 
@@ -153,9 +205,11 @@ npm install
 npm start
 ```
 
-## Environment Variables
+---
 
-Create a `.env` file and add your required keys.
+## 🔐 Environment Variables
+
+Create a `.env` file inside the frontend or root folder according to your project setup.
 
 ```env
 VITE_SUPABASE_URL=your_supabase_url
@@ -171,38 +225,63 @@ SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
 PORT=5000
 ```
 
-## Deployment
+---
 
-The project is deployed on Render.
+## 🌐 Deployment
 
-**Live Website:** https://ai-echoo-ecommerce-platform.onrender.com/
+The project is deployed on **Render**.
 
-## Key Learnings
+<p align="left">
+  <a href="https://ai-echoo-ecommerce-platform.onrender.com/" target="_blank">
+    <img src="https://img.shields.io/badge/Open%20Live%20Website-AI--EchOo%20E--commerce-00C853?style=for-the-badge&logo=render&logoColor=white" alt="Open Live Website" />
+  </a>
+</p>
+
+---
+
+## 📚 Key Learnings
 
 * Built a complete e-commerce workflow with user and admin features
-* Implemented Supabase authentication and database operations
+* Implemented authentication and database operations using Supabase
 * Managed product, cart, wishlist, order, and payment-related data
-* Designed a responsive and clean user interface using React
-* Added AI chatbot support for user assistance
+* Designed a responsive user interface using React
+* Added chatbot-based assistance for better user support
 * Improved debugging, deployment, and API integration skills
 
-## Future Improvements
+---
+
+## 🔮 Future Improvements
 
 * Add advanced product filtering and sorting
-* Improve chatbot product recommendation accuracy
+* Improve chatbot response accuracy
+* Add product recommendation system
 * Add email notifications for orders
-* Add analytics dashboard for admin
-* Improve payment status tracking
+* Add admin analytics dashboard
 * Add product review and rating system
+* Improve payment status tracking
 
-## Author
+---
+
+## 👨‍💻 Author
 
 **Sparsh Srivastava**
 
-* GitHub: https://github.com/Sp-bit-code
-* LinkedIn: https://linkedin.com/in/sparsh-srivastava-621882289
-* Portfolio: https://sparsh-portfolio-qokw.onrender.com/
+<p align="left">
+  <a href="https://github.com/Sp-bit-code" target="_blank">
+    <img src="https://img.shields.io/badge/GitHub-Sp--bit--code-000000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
+  </a>
 
-## License
+  <a href="https://linkedin.com/in/sparsh-srivastava-621882289" target="_blank">
+    <img src="https://img.shields.io/badge/LinkedIn-Sparsh%20Srivastava-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
+  </a>
+
+  <a href="https://sparsh-portfolio-qokw.onrender.com/" target="_blank">
+    <img src="https://img.shields.io/badge/Portfolio-Visit%20Now-FF6D00?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Portfolio" />
+  </a>
+</p>
+
+---
+
+## 📄 License
 
 This project is created for learning, development, and portfolio purposes.
