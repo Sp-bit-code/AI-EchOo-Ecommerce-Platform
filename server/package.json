@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "nodemon src/index.js",
     "start": "node src/index.js",
-    "render-build": "npm install --include=dev && cd ../client && npm install --include=dev && npm run build"
+    "render-build": "cd ../client && npm install --include=dev && npm run build && cd ../server && npm install --include=dev"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.45.4",
